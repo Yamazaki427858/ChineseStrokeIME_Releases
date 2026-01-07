@@ -1,10 +1,15 @@
-name: Build MinGW
+name: Build and Release
 
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ "main" ]
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -13,7 +18,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # 使用 MSYS2 安裝 MinGW
     - name: Setup MSYS2
       uses: msys2/setup-msys2@v2
       with:
@@ -23,15 +27,21 @@ jobs:
           mingw-w64-x86_64-gcc
           mingw-w64-x86_64-make
 
-    # 關鍵修改：用 mingw32-make 
     - name: Build
       shell: msys2 {0}
       run: |
         mingw32-make
 
-    # 上傳編譯好的 exe
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: ChineseStrokeIME-Build
         path: ChineseStrokeIME.exe
+
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: ChineseStrokeIME.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
