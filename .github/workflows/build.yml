@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # 改用 MSYS2 安裝 MinGW（更穩定）
+    # 使用 MSYS2 安裝 MinGW
     - name: Setup MSYS2
       uses: msys2/setup-msys2@v2
       with:
@@ -23,11 +23,11 @@ jobs:
           mingw-w64-x86_64-gcc
           mingw-w64-x86_64-make
 
-    # 使用 MSYS2 的環境來編譯
+    # 關鍵修改：用 mingw32-make 
     - name: Build
       shell: msys2 {0}
       run: |
-        make
+        mingw32-make
 
     # 上傳編譯好的 exe
     - name: Upload Artifact
