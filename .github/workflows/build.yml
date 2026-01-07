@@ -32,16 +32,15 @@ jobs:
       run: |
         mingw32-make
 
-    # 打包成 zip（只在發布 tag 時執行）
+    # 修改：PowerShell 打包成zip
     - name: Package Release
       if: startsWith(github.ref, 'refs/tags/')
-      shell: msys2 {0}
+      shell: pwsh
       run: |
-        mkdir release_package
-        cp ChineseStrokeIME.exe release_package/
-        cp user_dict.txt release_package/
-        cd release_package
-        7z a -tzip ../ChineseStrokeIME_Release.zip *
+        New-Item -ItemType Directory -Path ChineseStrokeIME
+        Copy-Item ChineseStrokeIME.exe ChineseStrokeIME/
+        Copy-Item user_dict.txt ChineseStrokeIME/
+        Compress-Archive -Path ChineseStrokeIME -DestinationPath ChineseStrokeIME_Release.zip
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
@@ -49,7 +48,6 @@ jobs:
         name: ChineseStrokeIME-Build
         path: ChineseStrokeIME.exe
 
-    # 上傳 zip 
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v1
