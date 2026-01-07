@@ -1,2 +1,2 @@
-# ChineseStrokeIME_Code
-在這裡下載ChineseStrokeIME的原始碼
+# ChineseStrokeIME_發布頁面
+在這裡下載最新版本的ChineseStrokeIME和原始碼
