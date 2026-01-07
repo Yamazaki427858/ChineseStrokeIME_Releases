@@ -1,0 +1,2 @@
+# ChineseStrokeIME_Code
+在這裡下載的ChineseStrokeIME原始碼
