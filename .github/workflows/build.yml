@@ -13,17 +13,23 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # 1. 安裝 MinGW
-    - name: Set up MinGW
-      uses: egor-tensin/setup-mingw@v2
+    # 改用 MSYS2 安裝 MinGW（更穩定）
+    - name: Setup MSYS2
+      uses: msys2/setup-msys2@v2
       with:
-        platform: x64
+        msystem: MINGW64
+        update: true
+        install: >-
+          mingw-w64-x86_64-gcc
+          mingw-w64-x86_64-make
 
-    # 2. 執行您的 Makefile
-    - name: Compile
-      run: mingw32-make
+    # 使用 MSYS2 的環境來編譯
+    - name: Build
+      shell: msys2 {0}
+      run: |
+        make
 
-    # 3. 把編譯好的 exe 上傳讓人下載 (作為 Artifact)
+    # 上傳編譯好的 exe
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
