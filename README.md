@@ -3,3 +3,6 @@
 <br>
 <br>
 這裡發問題：https://github.com/Yamazaki427858/ChineseStrokeIME/issues
+
+<br>
+[![CodeQL](https://github.com/Yamazaki427858/ChineseStrokeIME_Releases/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Yamazaki427858/ChineseStrokeIME_Releases/actions/workflows/github-code-scanning/codeql)
