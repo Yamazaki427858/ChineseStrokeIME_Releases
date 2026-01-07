@@ -1,0 +1,31 @@
+name: Build MinGW
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    # 1. 安裝 MinGW
+    - name: Set up MinGW
+      uses: egor-tensin/setup-mingw@v2
+      with:
+        platform: x64
+
+    # 2. 執行您的 Makefile
+    - name: Compile
+      run: mingw32-make
+
+    # 3. 把編譯好的 exe 上傳讓人下載 (作為 Artifact)
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ChineseStrokeIME-Build
+        path: ChineseStrokeIME.exe
