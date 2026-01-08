@@ -2,7 +2,9 @@
 下載最新版本的ChineseStrokeIME和原始碼
 <br>
 <br>
-這裡發問題：https://github.com/Yamazaki427858/ChineseStrokeIME/issues
+📖介紹頁：https://github.com/Yamazaki427858/ChineseStrokeIME
+<br>
+📮發問題：https://github.com/Yamazaki427858/ChineseStrokeIME/issues
 <br>
 <br>
 <br>
