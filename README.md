@@ -1,4 +1,7 @@
 # ChineseStrokeIME_發布頁面
+免安裝、即開即用的中文筆劃輸入法
+<br>
+<br>
 下載最新版本的ChineseStrokeIME和原始碼
 <br>
 <br>
