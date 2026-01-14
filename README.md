@@ -2,7 +2,11 @@
 免安裝、即開即用的中文筆劃輸入法
 <br>
 <br>
-下載最新版本的ChineseStrokeIME和原始碼
+# 下載最新版本的ChineseStrokeIME和原始碼
+### 2026年最新版本： 中文筆劃輸入法 V3.0.1
+💾下載：https://github.com/Yamazaki427858/ChineseStrokeIME_Releases/releases
+<br>
+<br>
 <br>
 <br>
 📖詳細介紹頁：https://github.com/Yamazaki427858/ChineseStrokeIME
@@ -18,10 +22,7 @@
 [![Downloads](https://img.shields.io/github/downloads/Yamazaki427858/ChineseStrokeIME_Releases/total)](https://github.com/Yamazaki427858/ChineseStrokeIME_Releases/releases)
 <br>
 <br>
-### 2026年最新版本： 中文筆劃輸入法 V3.0.1
-💾下載：https://github.com/Yamazaki427858/ChineseStrokeIME_Releases/releases
-<br>
-<br>
+
 ## ✨ V3.0 重大更新
 
 ## 🌐 線上更新字碼表
